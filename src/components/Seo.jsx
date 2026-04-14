@@ -1,22 +1,19 @@
 import React from 'react';
-import { services } from '../data/servicesData';
 
 export default function Seo({
-  title = 'Rarevoc - Creative Digital Agency',
-  description = "Rarevoc creates memorable brands, web experiences and growth strategies — Branding, Product, Growth and Future Innovation.",
-  url = 'https://rarevoc.work',
-  image = 'https://rarevoc.work/og-image.png',
-  keywords = 'branding, digital agency, design, development, marketing, AI, product, seo, performance marketing',
+  title = 'Nazzifoods - Ready Made Mix Packages',
+  description = 'Nazzifoods provides premium ready-made mix packages for homes, retailers, and food businesses with reliable quality and taste.',
+  url = 'https://nazzifoods.com',
+  image = 'https://nazzifoods.com/og-image.png',
+  keywords = 'nazzifoods, ready mix, food mix package, instant mix, retail food products, bulk food supply',
 }) {
   const org = {
     "@type": "Organization",
-    "name": "Rarevoc",
+    "name": "Nazzifoods",
     "url": url,
-    "logo": "https://rarevoc.work/logo.png",
+    "logo": "https://nazzifoods.com/logo.png",
     "sameAs": [
-      "https://www.linkedin.com/company/rarevoc",
-      "https://twitter.com/rarevoc",
-      "https://www.instagram.com/rarevoc"
+      "https://www.instagram.com/nazzifoods"
     ],
     "contactPoint": [{
       "@type": "ContactPoint",
@@ -26,26 +23,20 @@ export default function Seo({
     }]
   };
 
-  // Build Service schema for each service category/subcategory
-  const serviceSchemas = [];
-  try {
-    if (Array.isArray(services)) {
-      services.forEach((svc) => {
-        if (Array.isArray(svc.services)) {
-          svc.services.forEach((sub) => {
-            serviceSchemas.push({
-              "@type": "Service",
-              "name": sub.category || svc.title,
-              "description": (sub.items || []).join('. '),
-              "provider": { "@type": "Organization", "name": "Rarevoc", "url": url }
-            });
-          });
-        }
-      });
+  const serviceSchemas = [
+    {
+      "@type": "Service",
+      "name": "Ready Mix Retail Packs",
+      "description": "Shelf-ready food mix packages for modern retail stores.",
+      "provider": { "@type": "Organization", "name": "Nazzifoods", "url": url }
+    },
+    {
+      "@type": "Service",
+      "name": "Bulk Food Mix Supply",
+      "description": "Consistent ready-made mix supply for businesses and distributors.",
+      "provider": { "@type": "Organization", "name": "Nazzifoods", "url": url }
     }
-  } catch (e) {
-    // safe fallback - do nothing
-  }
+  ];
 
   const graph = [
     { "@context": "https://schema.org", "@graph": [org, ...serviceSchemas] }

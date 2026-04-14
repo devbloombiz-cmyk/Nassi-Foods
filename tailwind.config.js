@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          yellow: '#FFFF00',
-          gold: '#FFFF00',
-          amber: '#FFFF00',
+          yellow: '#f3c135',
+          gold: '#f3c135',
+          amber: '#f3c135',
         },
         dark: {
           900: '#000000',
@@ -32,7 +32,7 @@ export default {
   backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-  'gradient-yellow': 'linear-gradient(135deg, #FFFF00 0%, #FFFF00 100%)',
+    'gradient-yellow': 'linear-gradient(135deg, #f3c135 0%, #f3c135 100%)',
         'gradient-dark': 'linear-gradient(180deg, #000000 0%, #1A1A1A 100%)',
       },
       animation: {
@@ -50,8 +50,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(255, 255, 0, 0.45)' },
-          '100%': { boxShadow: '0 0 40px rgba(255, 255, 0, 0.7)' },
+          '0%': { boxShadow: '0 0 20px rgba(243, 193, 53, 0.45)' },
+          '100%': { boxShadow: '0 0 40px rgba(243, 193, 53, 0.7)' },
         },
         slideUp: {
           '0%': { transform: 'translateY(100px)', opacity: '0' },

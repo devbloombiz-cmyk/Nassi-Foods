@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 // Configure your site root and the routes to include
-const siteRoot = 'https://rarevoc.work';
+const siteRoot = 'https://nazzifoods.com';
 
 // Simple static routes - expand if you add dynamic routes
 const staticRoutes = [

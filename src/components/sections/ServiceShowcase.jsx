@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import card1 from "../../assets/shocaseCardImages/c-1.png";
+import card2 from "../../assets/shocaseCardImages/c2.png";
+import card3 from "../../assets/shocaseCardImages/c-3.png";
+import card4 from "../../assets/shocaseCardImages/c-4.png";
+import card5 from "../../assets/shocaseCardImages/c-5.png";
 
 const cards = [
-  { id: 0, image: "/s1.jpg" },
-  { id: 1, image: "/s2.jpg" },
-  { id: 2, image: "/s3.jpg" },
-  { id: 3, image: "/s4.jpg" },
-  { id: 4, image: "/s5.jpg" },
-  { id: 5, image: "/s7.jpg" },
+  { id: 0, image: card1 },
+  { id: 1, image: card2 },
+  { id: 2, image: card3 },
+  { id: 3, image: card4 },
+  { id: 4, image: card5 },
+  { id: 5, image: card2 },
 ];
 
 const ARC_SLOTS = [
@@ -68,21 +73,22 @@ export default function ExperienceShowcase() {
   };
 
   const { xOffset, yOffset } = getCardOffsets();
+  const horizontalFactor = screenWidth < 640 ? 0.78 : 1;
 
   return (
     <section className="relative min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden">
 
       {/* ================= HEADING ================= */}
-      <div className="relative w-full mt-16 md:mt-20 lg:mt-24 w-full flex justify-end">
-        <div className="bg-primary-yellow py-6 md:py-10 overflow-hidden w-fit">
+      <div className="relative w-full mt-0 md:mt-0 lg:mt-24 flex justify-center md:justify-end">
+        <div className="bg-primary-yellow py-0 md:py-10 overflow-hidden w-full md:w-fit">
           <motion.h1
-            className="text-3xl md:text-5xl lg:text-[100px] font-popins font-bold leading-none text-black px-6 md:px-12"
+            className="text-center text-3xl md:text-5xl lg:text-[100px] font-popins font-bold leading-none text-black px-0 md:px-12 whitespace-nowrap"
             initial={{ opacity: 0, x: 260 }}   // ← start from RIGHT
             whileInView={{ opacity: 1, x: 0 }} // ← settle toward center
             transition={{ duration: 0.9, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            Let’s Talk
+            Let&apos;s Taste
           </motion.h1>
         </div>
       </div>
@@ -95,6 +101,7 @@ export default function ExperienceShowcase() {
           style={{
             perspective: "1600px",
             perspectiveOrigin: "50% 38%",
+
           }}
         >
           {cards.map((card, i) => {
@@ -115,7 +122,7 @@ export default function ExperienceShowcase() {
                 className="absolute left-1/2 top-1/2 w-[320px] h-[320px] sm:w-[420px] sm:h-[340px] md:w-[460px] md:h-[380px]"
                 style={{ transformStyle: "preserve-3d", zIndex: slot.zIndex }}
                 animate={{
-                  x: slot.x - xOffset,
+                  x: slot.x * horizontalFactor - xOffset,
                   y: slot.y - yOffset,
                   translateZ: slot.z,
                   rotateY: slot.rotateY,
@@ -131,10 +138,10 @@ export default function ExperienceShowcase() {
               </motion.div>
             );
           })}
-        </div>
+        </div>    
 
         {/* Bottom fade */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-black via-black/95 to-transparent z-40" />
+        <div className="pointer-events-none absolute -bottom-[70px] left-0 right-0 h-[47%] bg-gradient-to-t from-black via-black/95 to-transparent z-40 md:bottom-0" />
       </div>
     </section>
   );
@@ -147,8 +154,8 @@ function Card({ image, isCenter }) {
       className={`
         relative w-full h-full rounded-2xl overflow-hidden
         bg-gray-900 shadow-[0_30px_80px_rgba(0,0,0,0.9)]
-        border border-white/6
-        ${isCenter ? "ring-1 ring-white/30" : ""}
+        border border-primary-yellow/40
+        ${isCenter ? "ring-1 ring-primary-yellow/60" : ""}
       `}
     >
       <img src={image} alt="" className="w-full h-full object-cover" draggable={false} />

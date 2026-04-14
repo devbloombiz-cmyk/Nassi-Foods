@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
+import footerOne from "../../assets/NazziFoods/nazzi-6.png";
+import footerTwo from "../../assets/NazziFoods/nazzi-7.png";
+import footerThree from "../../assets/NazziFoods/nazzi-8.png";
 
 // Small social card used in footer (tilted white label cards)
 function SocialCard({ label, href, rotation = 0 }) {
@@ -20,12 +23,17 @@ function SocialCard({ label, href, rotation = 0 }) {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const navLinks = ["WORK", "ABOUT", "SERVICES", "INSIGHT"];
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "Products", href: "#products" },
+    { name: "Order", href: "#order" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   const socialLinks = [
-    { label: "Instagram", href: "#instagram", rotation: -4 },
-    { label: "Facebook", href: "#facebook", rotation: 3 },
-    { label: "Dribbble", href: "#dribbble", rotation: -3 },
+    { label: "Instagram", href: "#", rotation: -4 },
+    { label: "Facebook", href: "#", rotation: 3 },
+    { label: "YouTube", href: "#", rotation: -3 },
   ];
 
   return (
@@ -35,30 +43,17 @@ export default function Footer() {
       <div className=" max-w-6xl relative bg-primary-yellow pt-4 pb-4 md:pt-8 md:pb-8">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-20">
           
-          {/* Let's Talk Heading with Contact Link (reduced spacing) */}
-          <div className="flex justify-between items-start mb-1">
+          {/* Top footer brand label */}
+          <div className="flex justify-start items-start mb-1">
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-[120px] font-serif font-bold leading-none text-dark-900"
+              className="text-4xl md:text-6xl lg:text-[110px] font-serif font-bold leading-none text-dark-900"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
-              Let's Talk
+              Nazzifoods
             </motion.h1>
-            
-            <motion.a
-              href="#contact"
-              className="flex items-center gap-2 text-sm md:text-base font-medium text-primary-yellow hover:text-accent-white transition-colors group mt-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ x: 4 }}
-            >
-              <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              Contact
-            </motion.a>
           </div>
 
         </div>
@@ -77,13 +72,13 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <p className="text-base md:text-lg text-gray-300 mb-4 max-w-2xl mx-auto">
-              I keep things simple, creative and nonsense-free.
+              Ready-made mix packages crafted for flavor consistency, fast cooking, and reliable distribution.
             </p>
             <a
-              href="mailto:rarevoc.work@gmail.com"
+              href="mailto:hello@nazzifoods.com"
               className="text-base md:text-lg font-medium text-white hover:text-primary-yellow transition-colors underline"
             >
-              Drop us a line at rarevoc.work@gmail.com
+              Drop us a line at hello@nazzifoods.com
             </a>
           </motion.div>
 
@@ -96,12 +91,24 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif italic mb-6">
-              Rarevoc.
+              Taste you can trust.
             </h2>
             <p className="text-sm md:text-base text-gray-400 max-w-md leading-relaxed">
-              From bases in London and Melbourne I work remotely with start-ups and famous names from all over the world.
+              From sourcing to sealed packaging, we help homes and businesses serve authentic food faster with Nazzifoods mixes.
             </p>
           </motion.div>
+
+          <div className="mb-12 grid grid-cols-3 gap-3 md:hidden">
+            <div className="overflow-hidden rounded-xl border border-white/10">
+              <img src={footerOne} alt="Nazzifoods product" className="h-28 w-full object-cover" />
+            </div>
+            <div className="overflow-hidden rounded-xl border border-white/10">
+              <img src={footerTwo} alt="Nazzifoods product" className="h-28 w-full object-cover" />
+            </div>
+            <div className="overflow-hidden rounded-xl border border-white/10">
+              <img src={footerThree} alt="Nazzifoods product" className="h-28 w-full object-cover" />
+            </div>
+          </div>
 
           {/* Navigation and Social Links Grid */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 md:gap-6">
@@ -117,12 +124,12 @@ export default function Footer() {
               <nav className="grid grid-cols-2 gap-x-8 gap-y-3">
                 {navLinks.map((link) => (
                   <motion.a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
+                    key={link.name}
+                    href={link.href}
                     className="text-sm font-medium uppercase tracking-wider hover:text-primary-yellow transition-colors"
                     whileHover={{ x: 4 }}
                   >
-                    {link}
+                    {link.name}
                   </motion.a>
                 ))}
               </nav>
@@ -144,7 +151,7 @@ export default function Footer() {
 
           {/* Floating Polaroid Images */}
           <motion.div
-            className="absolute top-8 left-6 md:left-12 w-32 md:w-40 z-0 pointer-events-none"
+            className="absolute top-8 left-6 md:left-12 w-32 md:w-40 z-0 pointer-events-none hidden md:block"
             style={{ rotate: -8 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -154,14 +161,14 @@ export default function Footer() {
           >
             <div className="bg-dark-800 p-1 shadow-lg">
               <img
-                src="/F3.jpg"
-                alt="Project"
+                src={footerOne}
+                alt="Nazzifoods product"
                 className="w-full h-32 md:h-40 object-cover rounded-xl"
               />
             </div>
           </motion.div>
           <motion.div
-            className="absolute top-14 right-8 md:right-20 w-36 md:w-52 z-0 pointer-events-none"
+            className="absolute top-14 right-8 md:right-20 w-36 md:w-52 z-0 pointer-events-none hidden md:block"
             style={{ rotate: 6 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -171,15 +178,15 @@ export default function Footer() {
           >
             <div className="bg-dark-800 p-1 shadow-lg">
               <img
-                src="/F2.jpg"
-                alt="Project"
+                src={footerTwo}
+                alt="Nazzifoods product"
                 className="w-full h-44 md:h-64 object-cover rounded-xl"
               />
             </div>
           </motion.div>
 
           <motion.div
-            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-36 md:w-48 z-0 pointer-events-none"
+            className="absolute bottom-28 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-36 md:w-48 z-0 pointer-events-none hidden md:block"
             style={{ rotate: -5 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -189,8 +196,8 @@ export default function Footer() {
           >
             <div className="bg-dark-800 p-1 shadow-lg">
               <img
-                src="/F1.jpg"
-                alt="Project"
+                src={footerThree}
+                alt="Nazzifoods product"
                 className="w-full h-40 md:h-56 object-cover rounded-xl"
               />
             </div>
@@ -214,9 +221,9 @@ export default function Footer() {
           </motion.div>
           {/* Bottom Credits */}
           <div className="mt-16 pt-6 border-t border-white/6 flex flex-col md:flex-row justify-between gap-4 text-xs text-gray-500">
-            <p>Site designed and built by Helo Clips</p>
-            <p>Copyright © {currentYear} Helo Clips Ltd. All rights reserved.</p>
-            <p>Powered by Webflow</p>
+            <p>Nazzifoods delivers dependable ready-mix products</p>
+            <p>Copyright © {currentYear} Nazzifoods. All rights reserved.</p>
+            <p>For wholesale, dealership, and support enquiries, contact hello@nazzifoods.com.</p>
           </div>
 
         </div>

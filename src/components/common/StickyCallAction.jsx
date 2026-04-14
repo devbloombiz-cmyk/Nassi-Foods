@@ -29,7 +29,7 @@ export default function StickyCallAction() {
       >
         <BsChat className="text-white text-sm" />
         <span className="text-white text-xs font-medium tracking-wide">
-          Connect us
+          Order on WhatsApp
         </span>
       </div>
     </motion.a>

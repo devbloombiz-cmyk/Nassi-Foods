@@ -1,4 +1,4 @@
-# Rarevoc Development Guide
+# Nazzifoods Development Guide
 
 ## 🚀 Quick Start
 
@@ -13,7 +13,7 @@ rm -r -fo node_modules/.vite
 npm run dev
 ```
 
-## 🐛 Common Issues & Solutions
+## Common Issues & Solutions
 
 ### Issue 1: Vite Dependency Error (504)
 **Error:** `ERR_ABORTED 504 (Outdated Optimize Dep)`
@@ -58,7 +58,7 @@ transition={{
 3. Clear browser cache
 4. Check Vite dev server is running
 
-## 📝 Framer Motion Easing Guide
+## Framer Motion Easing Guide
 
 ### Valid Easing Options:
 
@@ -90,24 +90,20 @@ mass: 1           // Higher = heavier
 ease: [0.17, 0.67, 0.83, 0.67]  // Cubic bezier
 ```
 
-## 🎨 Component Architecture
+## Component Architecture
 
 ```
 src/
 ├── components/
-│   ├── 3D/                  # Three.js components (currently disabled)
-│   ├── animations/          # Reusable animation components
-│   ├── common/              # Shared components (Loader, Progress)
-│   ├── effects/             # Visual effects (Cursor trail)
+│   ├── common/              # Shared components (ErrorBoundary, Scroll)
 │   ├── layout/              # Navigation, Footer
-│   ├── sections/            # Reusable page sections
 │   └── ui/                  # UI primitives
 ├── pages/
-│   └── Rarevoc/            # Main website pages
-└── data/                    # Static data and constants
+│   └── Nazzifoods/          # Main website pages
+└── assets/                  # Images and videos used by sections
 ```
 
-## 🔧 Performance Tips
+## Performance Tips
 
 1. **Lazy Load Components**
 ```javascript
@@ -132,7 +128,7 @@ const [ref, inView] = useInView({
 });
 ```
 
-## 🎯 Animation Best Practices
+## Animation Best Practices
 
 ### 1. Stagger Animations
 ```javascript
@@ -164,14 +160,14 @@ const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 />
 ```
 
-## 🌈 Color System
+## Color System
 
 ```javascript
 // Tailwind config colors
 primary: {
-  yellow: '#FFFF00',
-  gold: '#FDB913',
-  amber: '#FFBF00',
+  yellow: '#f3c135',
+  gold: '#f3c135',
+  amber: '#f3c135',
 }
 
 dark: {
@@ -187,7 +183,7 @@ accent: {
 }
 ```
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
 ```javascript
 sm: '640px'   // Mobile landscape
@@ -197,7 +193,7 @@ xl: '1280px'  // Large desktop
 2xl: '1536px' // Extra large
 ```
 
-## 🔥 Hot Tips
+## Hot Tips
 
 1. **Custom Cursors** - Only show on desktop
 2. **Reduce Motion** - Respect user preferences
@@ -205,7 +201,7 @@ xl: '1280px'  // Large desktop
 4. **Error Boundaries** - Catch component errors
 5. **SEO** - Add meta tags and structured data
 
-## 📦 Build Commands
+## Build Commands
 
 ```bash
 # Development
@@ -221,7 +217,7 @@ npm run preview
 npm run lint
 ```
 
-## 🎬 Animation Performance
+## Animation Performance
 
 - Keep animations under 300ms for snappiness
 - Use `transform` and `opacity` for best performance
@@ -229,7 +225,7 @@ npm run lint
 - Use `will-change` sparingly
 - Limit simultaneous animations to 3-5 elements
 
-## 🚨 Debugging
+## Debugging
 
 ```bash
 # Check for errors
@@ -246,7 +242,7 @@ F12 (Windows) / Cmd+Opt+I (Mac)
 # Check Performance tab for slow animations
 ```
 
-## 📞 Support
+## Support
 
 If you encounter issues:
 1. Check this guide first
@@ -257,4 +253,4 @@ If you encounter issues:
 
 ---
 
-**Happy Coding! 🚀**
+Happy Coding.

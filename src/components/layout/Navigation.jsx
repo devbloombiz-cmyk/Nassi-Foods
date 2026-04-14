@@ -4,9 +4,10 @@ import { HiMenu, HiX } from 'react-icons/hi';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
+  { name: 'Products', href: '#products' },
+  { name: 'Order', href: '#order' },
+  { name: 'Videos', href: '#videos' },
   { name: 'Services', href: '#services' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'About', href: '#about' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -38,7 +39,9 @@ export default function Navigation() {
             className="text-3xl font-display font-bold gradient-text hover:scale-105 transition-transform"
             whileHover={{ scale: 1.05 }}
           >
-            <img src="/oglogo.png" alt="RAREVOC" className="h-20 w-auto object-contain inline-block" />
+            <span className="text-primary-yellow text-2xl md:text-3xl font-extrabold tracking-wide">
+              Nazzifoods
+            </span>
           </motion.a>
 
           {/* Desktop Menu */}
@@ -60,8 +63,9 @@ export default function Navigation() {
               className="px-6 py-2 bg-gradient-yellow text-dark-900 font-bold rounded-full hover:scale-105 transition-transform glow-effect"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.assign('#order')}
             >
-              Get Started
+              Order Now
             </motion.button>
           </div>
 
@@ -103,8 +107,12 @@ export default function Navigation() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.location.assign('#order');
+                }}
               >
-                Get Started
+                Order Now
               </motion.button>
             </div>
           </motion.div>
