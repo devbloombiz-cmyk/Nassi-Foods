@@ -6,7 +6,7 @@ const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'Products', href: '#products' },
   { name: 'Order', href: '#order' },
-  { name: 'Videos', href: '#videos' },
+  { name: 'Videos', href: '#products' },
   { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -14,6 +14,28 @@ const navLinks = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const scrollToSection = (href, delay = 0) => {
+    window.setTimeout(() => {
+    const section = document.querySelector(href);
+    if (!section) return;
+
+    const navOffset = 88;
+    const top = section.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
+      window.history.replaceState(null, '', href);
+    }, delay);
+  };
+
+  const handleSectionClick = (event, href, closeMenu = false) => {
+    event.preventDefault();
+    if (closeMenu) {
+      setIsOpen(false);
+      scrollToSection(href, 180);
+      return;
+    }
+    scrollToSection(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +60,10 @@ export default function Navigation() {
             href="#home"
             className="text-3xl font-display font-bold gradient-text hover:scale-105 transition-transform"
             whileHover={{ scale: 1.05 }}
+            onClick={(e) => {
+              handleSectionClick(e, '#home');
+              setIsOpen(false);
+            }}
           >
             <span className="text-primary-yellow text-2xl md:text-3xl font-extrabold tracking-wide">
               Nazzifoods
@@ -54,6 +80,10 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                onClick={(e) => {
+                  handleSectionClick(e, link.href);
+                  setIsOpen(false);
+                }}
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-yellow group-hover:w-full transition-all duration-300"></span>
@@ -63,7 +93,10 @@ export default function Navigation() {
               className="px-6 py-2 bg-gradient-yellow text-dark-900 font-bold rounded-full hover:scale-105 transition-transform glow-effect"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.assign('#order')}
+              onClick={(e) => {
+                handleSectionClick(e, '#order');
+                setIsOpen(false);
+              }}
             >
               Order Now
             </motion.button>
@@ -97,7 +130,9 @@ export default function Navigation() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    handleSectionClick(e, link.href, true);
+                  }}
                 >
                   {link.name}
                 </motion.a>
@@ -107,10 +142,7 @@ export default function Navigation() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
-                onClick={() => {
-                  setIsOpen(false);
-                  window.location.assign('#order');
-                }}
+                onClick={(e) => handleSectionClick(e, '#order', true)}
               >
                 Order Now
               </motion.button>

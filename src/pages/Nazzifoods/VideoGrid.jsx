@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import grid1 from "../../assets/GridVedios/Grid-1.mp4";
-import grid4 from "../../assets/GridVedios/grid-4.mp4";
 import grid5 from "../../assets/GridVedios/grid-5.mp4";
 import grid6 from "../../assets/GridVedios/grid-6.mp4";
 import grid7 from "../../assets/GridVedios/grid-7.mp4";
@@ -12,7 +11,7 @@ import grid10 from "../../assets/GridVedios/grid-10.mp4";
 
 const productVideos = [
   { id: 1, src: grid1 },
-  { id: 4, src: grid4 },
+  { id: 2, src: grid10 },
   { id: 5, src: grid5 },
   { id: 6, src: grid6 },
   { id: 7, src: grid7 },
