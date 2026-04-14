@@ -76,11 +76,11 @@ export default function ExperienceShowcase() {
   const horizontalFactor = screenWidth < 640 ? 0.78 : 1;
 
   return (
-    <section className="relative min-h-screen bg-black flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative  bg-black flex flex-col items-center justify-center overflow-hidden">
 
       {/* ================= HEADING ================= */}
       <div className="relative w-full mt-0 md:mt-0 lg:mt-24 flex justify-center md:justify-end">
-        <div className="bg-primary-yellow py-0 md:py-10 overflow-hidden w-full md:w-fit">
+        <div className="bg-primary-yellow py-0 md:py-5 overflow-hidden w-full md:w-fit">
           <motion.h1
             className="text-center text-3xl md:text-5xl lg:text-[100px] font-popins font-bold leading-none text-black px-0 md:px-12 whitespace-nowrap"
             initial={{ opacity: 0, x: 260 }}   // ← start from RIGHT

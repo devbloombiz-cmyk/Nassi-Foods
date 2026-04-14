@@ -120,7 +120,6 @@ export default function Footer() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <p className="text-xs text-gray-500 mb-4 tracking-wider">[ THIS SITE ]</p>
               <nav className="grid grid-cols-2 gap-x-8 gap-y-3">
                 {navLinks.map((link) => (
                   <motion.a
