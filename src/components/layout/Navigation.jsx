@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
+import brandLogo from '../../assets/logoNazzi.png';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -58,16 +59,14 @@ export default function Navigation() {
           {/* Logo */}
           <motion.a
             href="#home"
-            className="text-3xl font-display font-bold gradient-text hover:scale-105 transition-transform"
+            className="inline-flex items-center hover:scale-105 transition-transform"
             whileHover={{ scale: 1.05 }}
             onClick={(e) => {
               handleSectionClick(e, '#home');
               setIsOpen(false);
             }}
           >
-            <span className="text-primary-yellow text-2xl md:text-3xl font-extrabold tracking-wide">
-              Nazzifoods
-            </span>
+            <img src={brandLogo} alt="Nazzifoods logo" className="h-12 w-auto md:h-14" />
           </motion.a>
 
           {/* Desktop Menu */}

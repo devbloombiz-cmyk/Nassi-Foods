@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { BsChat } from 'react-icons/bs';
 
 export default function StickyCallAction() {
-  const phoneNumber = '9645588095';
+  const phoneNumber = '7558872790';
 
   return (
     <motion.a

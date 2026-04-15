@@ -13,11 +13,12 @@ export default function Seo({
     "url": url,
     "logo": "https://nazzifoods.com/logo.png",
     "sameAs": [
-      "https://www.instagram.com/nazzifoods"
+      "https://www.instagram.com/nazzi_foods/",
+      "https://www.facebook.com/nazzifoods"
     ],
     "contactPoint": [{
       "@type": "ContactPoint",
-      "telephone": "+919645588095",
+      "telephone": "+917558872790",
       "contactType": "customer service",
       "areaServed": "IN"
     }]

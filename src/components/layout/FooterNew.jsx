@@ -31,9 +31,9 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { label: "Instagram", href: "#", rotation: -4 },
-    { label: "Facebook", href: "#", rotation: 3 },
-    { label: "YouTube", href: "#", rotation: -3 },
+    { label: "Instagram", href: "https://www.instagram.com/nazzi_foods/", rotation: -4 },
+    { label: "Facebook", href: "https://www.facebook.com/nazzifoods", rotation: 3 },
+    { label: "WhatsApp", href: "https://wa.me/917558872790", rotation: -3 },
   ];
 
   return (
@@ -75,10 +75,10 @@ export default function Footer() {
               Ready-made mix packages crafted for flavor consistency, fast cooking, and reliable distribution.
             </p>
             <a
-              href="mailto:hello@nazzifoods.com"
+              href="mailto:nazzindustry@gmail.com"
               className="text-base md:text-lg font-medium text-white hover:text-primary-yellow transition-colors underline"
             >
-              Drop us a line at hello@nazzifoods.com
+              Drop us a line at nazzindustry@gmail.com
             </a>
           </motion.div>
 
@@ -222,7 +222,7 @@ export default function Footer() {
           <div className="mt-16 pt-6 border-t border-white/6 flex flex-col md:flex-row justify-between gap-4 text-xs text-gray-500">
             <p>Nazzifoods delivers dependable ready-mix products</p>
             <p>Copyright © {currentYear} Nazzifoods. All rights reserved.</p>
-            <p>For wholesale, dealership, and support enquiries, contact hello@nazzifoods.com.</p>
+            <p>For wholesale, dealership, and support enquiries, contact nazzindustry@gmail.com.</p>
           </div>
 
         </div>

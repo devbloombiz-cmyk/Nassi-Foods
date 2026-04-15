@@ -40,7 +40,7 @@ export default function OrderCTA() {
           </a>
 
           <a
-            href="https://wa.me/919645588095"
+            href="https://wa.me/917558872790"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-white/50 px-8 py-3 text-sm font-semibold text-accent-white transition hover:border-primary-yellow hover:text-primary-yellow"

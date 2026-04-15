@@ -79,10 +79,10 @@ export default function ExperienceShowcase() {
     <section className="relative  bg-black flex flex-col items-center justify-center overflow-hidden">
 
       {/* ================= HEADING ================= */}
-      <div className="relative w-full mt-0 md:mt-0 lg:mt-24 flex justify-center md:justify-end">
-        <div className="bg-primary-yellow py-0 md:py-5 overflow-hidden w-full md:w-fit">
+      <div className="relative w-full mt-0 md:mt-0 lg:mt-24 flex justify-start md:justify-end">
+        <div className="bg-primary-yellow py-3 md:py-5 overflow-hidden w-full md:w-fit pl-4 md:pl-0">
           <motion.h1
-            className="text-center text-3xl md:text-5xl lg:text-[100px] font-popins font-bold leading-none text-black px-0 md:px-12 whitespace-nowrap"
+            className="text-left md:text-center text-3xl md:text-5xl lg:text-[100px] font-popins font-bold leading-none text-black px-0 md:px-12 whitespace-nowrap"
             initial={{ opacity: 0, x: 260 }}   // ← start from RIGHT
             whileInView={{ opacity: 1, x: 0 }} // ← settle toward center
             transition={{ duration: 0.9, ease: "easeOut" }}

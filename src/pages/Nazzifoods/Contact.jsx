@@ -1,6 +1,34 @@
+import { useState } from "react";
 import { FiMail, FiPhone } from "react-icons/fi";
 
 export default function Contact() {
+  const whatsappNumber = "917558872790";
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const whatsappMessage = [
+      "Hello Nazzifoods,",
+      "",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      "Message:",
+      formData.message,
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section id="contact" className="relative min-h-screen overflow-hidden flex">
       <div
@@ -37,7 +65,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-400">Email us</p>
-                      <p className="text-sm text-white">hello@nazzifoods.com</p>
+                      <p className="text-sm text-white">nazzindustry@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -49,7 +77,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-400">Call us</p>
-                      <p className="text-sm text-white">+91 96455 88095</p>
+                      <p className="text-sm text-white">+91 75588 72790</p>
                     </div>
                   </div>
                 </div>
@@ -59,22 +87,34 @@ export default function Contact() {
           </div>
 
           <div className="h-full rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl p-8 flex flex-col justify-between">
-            <form className="space-y-4 flex flex-col h-full">
+            <form className="space-y-4 flex flex-col h-full" onSubmit={handleSubmit}>
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
                 className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-primary-yellow"
               />
 
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
                 className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-primary-yellow"
               />
 
               <textarea
+                name="message"
                 placeholder="Message"
                 rows="6"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
                 className="w-full flex-grow px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-primary-yellow resize-none"
               />
 

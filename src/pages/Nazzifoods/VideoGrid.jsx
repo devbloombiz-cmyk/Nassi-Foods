@@ -30,7 +30,7 @@ function VideoCard({ src, columnIndex, isMobile = false }) {
 
   return (
     <motion.article
-      className={`relative ${isMobile ? "h-[450px] w-[300px] flex-shrink-0" : "h-[500px] sm:h-[560px] w-full"}`}
+      className={`relative ${isMobile ? "h-[380px] w-[300px] flex-shrink-0" : "h-[500px] sm:h-[560px] w-full"}`}
       initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
