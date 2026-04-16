@@ -25,7 +25,7 @@ const mobileRowTwo = productVideos.slice(4, 8);
 
 function VideoCard({ src, columnIndex, isMobile = false }) {
   const offsets = [0, 12, 24, 0, 18, 30];
-  const offset = offsets[columnIndex % offsets.length];
+  const offset = isMobile ? 0 : offsets[columnIndex % offsets.length];
   const direction = columnIndex % 2 === 0 ? 1 : -1;
 
   return (
